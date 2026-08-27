@@ -1,0 +1,207 @@
+/* =====================================
+   VENDOZA E-COMMERCE
+   Checkout Styles
+===================================== */
+
+.checkout-page {
+  padding: 80px 0;
+}
+
+.checkout-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+/* =====================================
+   CHECKOUT LAYOUT
+===================================== */
+
+.checkout-container {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 30px;
+
+  align-items: start;
+}
+
+/* =====================================
+   CHECKOUT FORM
+===================================== */
+
+.checkout-form {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 30px;
+}
+
+.checkout-form h2 {
+  margin-bottom: 25px;
+
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #ff6a00;
+}
+
+/* =====================================
+   PAYMENT
+===================================== */
+
+.payment-options {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.payment-option {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.payment-option:hover {
+  border-color: #ff6a00;
+}
+
+/* =====================================
+   ORDER SUMMARY
+===================================== */
+
+.checkout-summary {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  position: sticky;
+
+  top: 100px;
+}
+
+.checkout-summary h2 {
+  font-size: 24px;
+
+  margin-bottom: 25px;
+}
+
+.order-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+
+  color: #6b7280;
+}
+
+.summary-total {
+  border-top: 1px solid #e5e7eb;
+
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+.place-order-btn {
+  width: 100%;
+
+  margin-top: 25px;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+  .checkout-page {
+    padding: 50px 0;
+  }
+
+  .checkout-title {
+    font-size: 28px;
+  }
+
+  .checkout-form,
+  .checkout-summary {
+    padding: 20px;
+  }
+}

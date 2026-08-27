@@ -1,0 +1,64 @@
+/* =====================================
+   VENDOZA
+   Admin Login
+===================================== */
+
+.admin-login-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.admin-login-card {
+  width: 100%;
+
+  max-width: 420px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.admin-login-card h1 {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.admin-login-card input {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+}
+
+.admin-login-btn {
+  width: 100%;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.admin-message {
+  text-align: center;
+
+  margin-top: 15px;
+
+  color: #ef4444;
+}

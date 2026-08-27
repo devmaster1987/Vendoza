@@ -1,0 +1,24 @@
+/* =====================================
+   VENDOZA
+   Search Page
+===================================== */
+
+.search-page {
+  padding: 80px 0;
+}
+
+.search-page h1 {
+  font-size: 32px;
+
+  margin-bottom: 40px;
+}
+
+#searchText {
+  color: #ff6a00;
+}
+
+@media (max-width: 768px) {
+  .search-page h1 {
+    font-size: 24px;
+  }
+}

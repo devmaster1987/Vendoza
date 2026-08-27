@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Search</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/product.css" />
+
+    <link rel="stylesheet" href="css/search.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <a href="index.html" class="logo"> Vendoza </a>
+
+        <form class="search-box" id="searchForm">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products..."
+          />
+
+          <button>Search</button>
+        </form>
+
+        <div class="nav-actions">
+          <a href="cart.html"> Cart </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="search-page">
+        <div class="container">
+          <h1>
+            Search Results For:
+
+            <span id="searchText"></span>
+          </h1>
+
+          <div class="product-grid" id="searchResults"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">© 2026 Vendoza. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+
+    <script src="js/cart.js"></script>
+
+    <script src="js/search.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

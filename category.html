@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza - Categories</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/product.css" />
+
+    <link rel="stylesheet" href="css/category.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <a href="index.html" class="logo"> Vendoza </a>
+        <form class="search-box" id="searchForm">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products..."
+          />
+
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="nav-actions">
+          <a href="login.html"> Login </a>
+
+          <a href="cart.html">
+            Cart
+            <span class="cart-count"> 0 </span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="category-page">
+        <div class="container">
+          <h1 class="category-title">Shop Categories</h1>
+
+          <div class="category-buttons">
+            <button class="category-btn active" data-category="all">All</button>
+
+            <button class="category-btn" data-category="Electronics">
+              Electronics
+            </button>
+
+            <button class="category-btn" data-category="Fashion">
+              Fashion
+            </button>
+
+            <button class="category-btn" data-category="Beauty">Beauty</button>
+
+            <button class="category-btn" data-category="Home">Home</button>
+          </div>
+
+          <div class="category-products product-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">© 2026 Vendoza. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+
+    <script src="js/category.js"></script>
+
+    <script src="js/cart.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

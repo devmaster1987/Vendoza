@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza - Shopping Cart</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <a href="index.html" class="logo"> Vendoza </a>
+
+        <form class="search-box" id="searchForm">
+
+<input
+type="search"
+id="searchInput"
+placeholder="Search products..."
+>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+        <div class="nav-actions">
+          <a href="login.html"> Login </a>
+
+          <a href="cart.html">
+            Cart
+            <span class="cart-count"> 0 </span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="cart-page">
+        <div class="container">
+          <h1 class="cart-title">Shopping Cart</h1>
+
+          <div class="cart-container">
+            <div class="cart-items">
+              <!-- Products will load from cart.js -->
+            </div>
+
+            <aside class="cart-summary">
+              <h2>Order Summary</h2>
+
+              <div class="summary-row">
+                <span> Subtotal </span>
+
+                <strong class="cart-total"> $0.00 </strong>
+              </div>
+
+              <div class="summary-row">
+                <span> Shipping </span>
+
+                <strong> Free </strong>
+              </div>
+
+              <div class="summary-row">
+                <span> Total </span>
+
+                <strong class="cart-total"> $0.00 </strong>
+              </div>
+
+              <a href="checkout.html" class="btn checkout-btn">
+                Proceed To Checkout
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Vendoza</h3>
+
+            <p>Your trusted online marketplace.</p>
+          </div>
+
+          <div>
+            <h4>Shop</h4>
+
+            <a href="index.html"> Products </a>
+
+            <a href="#"> Categories </a>
+          </div>
+
+          <div>
+            <h4>Support</h4>
+
+            <a href="#"> Contact </a>
+
+            <a href="#"> Help Center </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">© 2026 Vendoza. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

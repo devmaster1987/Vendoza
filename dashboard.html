@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <a href="index.html" class="logo"> Vendoza </a>
+
+        <div class="nav-actions">
+          <a href="cart.html"> Cart </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="dashboard-page">
+        <div class="container">
+          <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+              <div class="user-avatar">V</div>
+
+              <div class="user-name" id="userName">User</div>
+
+              <nav class="dashboard-menu">
+                <a href="#" class="active"> Profile </a>
+
+                <a href="orders.html"> My Orders </a>
+
+                <a href="#"> Account Settings </a>
+
+                <button class="btn logout-btn" id="logoutBtn">Logout</button>
+              </nav>
+            </aside>
+
+            <div class="dashboard-content">
+              <div class="dashboard-stats">
+                <div class="stat-box">
+                  <strong id="orderCount"> 0 </strong>
+
+                  Orders
+                </div>
+
+                <div class="stat-box">
+                  <strong id="totalSpent"> $0 </strong>
+
+                  Spent
+                </div>
+
+                <div class="stat-box">
+                  <strong> 0 </strong>
+
+                  Wishlist
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <h2>Profile Information</h2>
+
+                <div class="profile-info">
+                  <p>
+                    Name:
+                    <span id="profileName"></span>
+                  </p>
+
+                  <p>
+                    Email:
+                    <span id="profileEmail"></span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <h2>Recent Orders</h2>
+
+                <div id="recentOrders"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

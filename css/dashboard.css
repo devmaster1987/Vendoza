@@ -1,0 +1,201 @@
+/* =====================================
+   VENDOZA
+   User Dashboard Styles
+===================================== */
+
+.dashboard-page {
+  padding: 80px 0;
+}
+
+.dashboard-layout {
+  display: grid;
+
+  grid-template-columns: 280px 1fr;
+
+  gap: 30px;
+}
+
+/* Sidebar */
+
+.dashboard-sidebar {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  height: max-content;
+}
+
+.user-avatar {
+  width: 80px;
+
+  height: 80px;
+
+  border-radius: 50%;
+
+  background: #ff6a00;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  margin: auto;
+}
+
+.user-name {
+  text-align: center;
+
+  margin: 15px 0;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.dashboard-menu {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.dashboard-menu a {
+  padding: 12px 15px;
+
+  border-radius: 8px;
+
+  color: #374151;
+
+  font-weight: 600;
+}
+
+.dashboard-menu a:hover,
+.dashboard-menu a.active {
+  background: #ff6a00;
+
+  color: white;
+}
+
+/* Content */
+
+.dashboard-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.dashboard-card {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  padding: 25px;
+}
+
+.dashboard-card h2 {
+  margin-bottom: 20px;
+}
+
+/* Stats */
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.stat-box {
+  background: #fff7ed;
+
+  padding: 25px;
+
+  border-radius: 12px;
+}
+
+.stat-box strong {
+  display: block;
+
+  font-size: 30px;
+
+  color: #ff6a00;
+}
+
+/* Profile */
+
+.profile-info p {
+  margin-bottom: 12px;
+
+  color: #4b5563;
+}
+
+/* Orders */
+
+.dashboard-order {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-status {
+  background: #dcfce7;
+
+  color: #16a34a;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+/* Logout */
+
+.logout-btn {
+  margin-top: 20px;
+
+  width: 100%;
+
+  background: #ef4444;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-page {
+    padding: 50px 0;
+  }
+}

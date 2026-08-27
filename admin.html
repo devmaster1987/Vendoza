@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Admin</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+
+  <body>
+    <script>
+
+if(
+localStorage.getItem("vendozaAdmin")
+!=="true"
+){
+
+window.location.href =
+"admin-login.html";
+
+}
+
+</script>
+    <main class="admin-page">
+      <div class="container">
+        <div class="admin-layout">
+          <aside class="admin-sidebar">
+            <div class="admin-logo">Vendoza Admin</div>
+
+            <nav class="admin-menu">
+              <button class="active">Dashboard</button>
+
+              <button>Products</button>
+
+              <button>Orders</button>
+            </nav>
+          </aside>
+
+          <section class="admin-content">
+            <div class="admin-stats">
+              <div class="admin-stat">
+                <strong id="productCount"> 0 </strong>
+
+                Products
+              </div>
+
+              <div class="admin-stat">
+                <strong id="orderCount"> 0 </strong>
+
+                Orders
+              </div>
+
+              <div class="admin-stat">
+                <strong id="revenue"> $0 </strong>
+
+                Revenue
+              </div>
+            </div>
+
+            <div class="admin-card">
+              <h2>Add Product</h2>
+
+              <form class="admin-form" id="productForm">
+                <input id="productName" placeholder="Product Name" />
+
+                <input id="productPrice" placeholder="Price" />
+
+                <input id="productCategory" placeholder="Category" />
+
+                <input id="productImage" placeholder="Image URL" />
+
+                <button class="btn">Add Product</button>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <h2>Products</h2>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+
+                    <th>Name</th>
+
+                    <th>Price</th>
+
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody id="productTable"></tbody>
+              </table>
+            </div>
+
+            <div class="admin-card">
+              <h2>Orders</h2>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+
+                    <th>Customer</th>
+
+                    <th>Total</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="orderTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/products.js"></script>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

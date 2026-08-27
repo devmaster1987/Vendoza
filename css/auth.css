@@ -1,0 +1,146 @@
+/* =====================================
+   VENDOZA E-COMMERCE
+   Authentication Styles
+===================================== */
+
+.auth-page {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 60px 0;
+}
+
+.auth-card {
+  width: 100%;
+
+  max-width: 450px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h1 {
+  text-align: center;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+  margin-bottom: 10px;
+}
+
+.auth-card .subtitle {
+  text-align: center;
+
+  color: #6b7280;
+
+  margin-bottom: 30px;
+}
+
+/* Form */
+
+.auth-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.auth-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+}
+
+.auth-group input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.auth-group input:focus {
+  border-color: #ff6a00;
+}
+
+/* Button */
+
+.auth-btn {
+  width: 100%;
+
+  margin-top: 10px;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+/* Message */
+
+.auth-message {
+  text-align: center;
+
+  font-size: 14px;
+
+  margin-top: 15px;
+}
+
+.auth-message.success {
+  color: #16a34a;
+}
+
+.auth-message.error {
+  color: #dc2626;
+}
+
+/* Footer Text */
+
+.auth-footer {
+  text-align: center;
+
+  margin-top: 25px;
+
+  color: #6b7280;
+}
+
+.auth-footer a {
+  color: #ff6a00;
+
+  font-weight: 700;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 25px;
+
+    border-radius: 15px;
+  }
+
+  .auth-card h1 {
+    font-size: 26px;
+  }
+}
