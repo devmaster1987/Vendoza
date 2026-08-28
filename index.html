@@ -12,7 +12,7 @@
     />
 
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/product.css" />
   </head>
 
   <body>
@@ -22,18 +22,14 @@
         <a href="index.html" class="logo"> Vendoza </a>
 
         <form class="search-box" id="searchForm">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products..."
+          />
 
-<input
-type="search"
-id="searchInput"
-placeholder="Search products..."
->
-
-<button type="submit">
-Search
-</button>
-
-</form>
+          <button type="submit">Search</button>
+        </form>
 
         <div class="nav-actions">
           <a href="login.html"> Login </a>
@@ -48,6 +44,8 @@ Search
       <section class="hero">
         <div class="container hero-content">
           <div class="hero-text">
+            <span class="hero-badge"> 🛒 Trusted Online Marketplace </span>
+
             <h1>
               Everything You Need,
               <span>Delivered Fast</span>
@@ -55,14 +53,55 @@ Search
 
             <p>
               Shop thousands of products from trusted sellers. Electronics,
-              fashion, beauty, and more.
+              fashion, beauty, home and more.
             </p>
 
-            <a href="#products" class="btn"> Shop Now </a>
+            <div class="hero-buttons">
+              <a href="#products" class="btn"> Shop Now </a>
+
+              <a href="#categories" class="btn hero-outline">
+                Explore Categories
+              </a>
+            </div>
+
+            <div class="hero-features">
+              <div>
+                <strong>✓</strong>
+                Secure Payment
+              </div>
+
+              <div>
+                <strong>✓</strong>
+                Fast Delivery
+              </div>
+
+              <div>
+                <strong>✓</strong>
+                Easy Returns
+              </div>
+            </div>
           </div>
 
           <div class="hero-image">
-            <img src="assets/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L3BmMzkta2Fyb2xpbmEtZ3JhYm93c2thLWthYm9vbXBpY3MtNjg3NC5qcGc.jpg" alt="Online shopping" />
+            <div class="image-card">
+             <img 
+src="https://images.unsplash.com/photo-1586880244406-556ebe35f282"
+alt="Fast delivery">
+
+              <div class="delivery-card">
+                🚚
+                <div>
+                  <strong> Fast Delivery </strong>
+
+                  <small> Within 24 Hours </small>
+                </div>
+              </div>
+
+              <div class="rating-card">
+                ⭐ 4.9
+                <small> Customer Rating </small>
+              </div>
+            </div>
           </div>
         </div>
       </section>
