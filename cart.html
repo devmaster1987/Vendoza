@@ -13,23 +13,38 @@
   <body>
     <header class="header">
       <nav class="navbar container">
-        <a href="index.html" class="logo"> Vendoza </a>
+        <a href="index.html" class="logo"> Vendoza<span>.</span> </a>
 
         <form class="search-box" id="searchForm">
           <input
             type="search"
             id="searchInput"
-            placeholder="Search products..."
+            placeholder="Search products, brands and categories..."
           />
 
-          <button type="submit">Search</button>
+          <button type="submit">🔍</button>
         </form>
 
         <div class="nav-actions">
-          <a href="login.html"> Login </a>
+          <a href="login.html" class="nav-item">
+            <span class="nav-icon"> 👤 </span>
 
-          <a href="cart.html">
-            Cart
+            <div>
+              <small> Hello </small>
+
+              <strong> Login </strong>
+            </div>
+          </a>
+
+          <a href="cart.html" class="nav-item cart-link">
+            <span class="nav-icon"> 🛒 </span>
+
+            <div>
+              <small> Your </small>
+
+              <strong> Cart </strong>
+            </div>
+
             <span class="cart-count"> 0 </span>
           </a>
         </div>
