@@ -16,18 +16,14 @@
         <a href="index.html" class="logo"> Vendoza </a>
 
         <form class="search-box" id="searchForm">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products..."
+          />
 
-<input
-type="search"
-id="searchInput"
-placeholder="Search products..."
->
-
-<button type="submit">
-Search
-</button>
-
-</form>
+          <button type="submit">Search</button>
+        </form>
 
         <div class="nav-actions">
           <a href="login.html"> Login </a>
@@ -70,7 +66,11 @@ Search
 
                 <strong class="cart-total"> $0.00 </strong>
               </div>
+              <div class="coupon-box">
+                <input placeholder="Coupon code" />
 
+                <button class="btn">Apply</button>
+              </div>
               <a href="checkout.html" class="btn checkout-btn">
                 Proceed To Checkout
               </a>

@@ -1,20 +1,21 @@
 /* =====================================
-   VENDOZA E-COMMERCE
-   Cart Styles
-===================================== */
-
-/* =====================================
-   CART PAGE
+   VENDOZA PREMIUM CART
 ===================================== */
 
 .cart-page {
-  padding: 80px 0;
+  padding: 70px 0;
+
+  background: #f8fafc;
 }
 
 .cart-title {
-  font-size: 36px;
+  font-size: 38px;
+
   font-weight: 800;
+
   margin-bottom: 40px;
+
+  color: #111827;
 }
 
 /* =====================================
@@ -24,16 +25,12 @@
 .cart-container {
   display: grid;
 
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) 380px;
 
   gap: 30px;
 
   align-items: start;
 }
-
-/* =====================================
-   CART ITEMS
-===================================== */
 
 .cart-items {
   display: flex;
@@ -48,55 +45,117 @@
 ===================================== */
 
 .cart-item {
+  width: 100%;
+
   background: #ffffff;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 16px;
+  border-radius: 20px;
 
-  padding: 20px;
+  padding: 25px;
 
   display: flex;
 
-  gap: 20px;
-
   align-items: center;
+
+  gap: 25px;
+
+  overflow: hidden;
 
   transition: 0.3s ease;
 }
 
 .cart-item:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
+  transform: translateY(-3px);
 
-.cart-item img {
-  width: 120px;
-
-  height: 120px;
-
-  object-fit: contain;
-
-  background: #f8fafc;
-
-  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 /* =====================================
-   CART PRODUCT INFO
+   PRODUCT IMAGE
 ===================================== */
 
-.cart-item h3 {
-  font-size: 18px;
+.cart-image {
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+.cart-image img {
+  width: 150px;
+
+  height: 150px;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  background: #f8fafc;
+}
+
+.stock-badge {
+  position: absolute;
+
+  top: 10px;
+
+  left: 10px;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-size: 12px;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  font-weight: 700;
+}
+
+/* =====================================
+   PRODUCT DETAILS
+===================================== */
+
+.cart-details {
+  flex: 1;
+
+  min-width: 220px;
+}
+
+.cart-details h3 {
+  font-size: 20px;
+
+  font-weight: 800;
+
+  margin-bottom: 10px;
+
+  color: #111827;
+}
+
+.rating {
+  color: #f59e0b;
+
+  margin-bottom: 10px;
+
+  letter-spacing: 2px;
+}
+
+.price {
+  font-size: 22px;
+
+  font-weight: 800;
+
+  color: #ff6a00;
 
   margin-bottom: 8px;
 }
 
-.cart-item p {
-  color: #ff6a00;
+.delivery {
+  color: #16a34a;
 
-  font-size: 18px;
-
-  font-weight: 700;
+  font-size: 14px;
 }
 
 /* =====================================
@@ -110,15 +169,15 @@
 
   gap: 15px;
 
-  margin: 15px 0;
+  margin: 20px 0;
 }
 
 .quantity button {
-  width: 35px;
+  width: 38px;
 
-  height: 35px;
+  height: 38px;
 
-  border-radius: 8px;
+  border-radius: 10px;
 
   border: 1px solid #e5e7eb;
 
@@ -126,7 +185,7 @@
 
   cursor: pointer;
 
-  font-size: 18px;
+  font-size: 20px;
 
   transition: 0.2s;
 }
@@ -135,10 +194,12 @@
   background: #ff6a00;
 
   color: white;
+
+  border-color: #ff6a00;
 }
 
 .quantity span {
-  min-width: 30px;
+  min-width: 35px;
 
   text-align: center;
 
@@ -146,37 +207,46 @@
 }
 
 /* =====================================
-   REMOVE BUTTON
+   ACTION BUTTONS
 ===================================== */
 
-.cart-item button:last-child {
+.cart-actions {
+  display: flex;
+
+  gap: 18px;
+}
+
+.save-btn,
+.remove-btn {
   border: none;
 
   background: none;
 
-  color: #ef4444;
-
   cursor: pointer;
 
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.cart-item button:last-child:hover {
-  text-decoration: underline;
+.save-btn {
+  color: #2563eb;
+}
+
+.remove-btn {
+  color: #ef4444;
 }
 
 /* =====================================
-   SUMMARY
+   ORDER SUMMARY
 ===================================== */
 
 .cart-summary {
-  background: white;
+  background: #ffffff;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 16px;
+  border-radius: 20px;
 
-  padding: 25px;
+  padding: 30px;
 
   position: sticky;
 
@@ -184,7 +254,9 @@
 }
 
 .cart-summary h2 {
-  font-size: 24px;
+  font-size: 26px;
+
+  font-weight: 800;
 
   margin-bottom: 25px;
 }
@@ -194,37 +266,69 @@
 
   justify-content: space-between;
 
-  margin-bottom: 15px;
+  align-items: center;
+
+  margin-bottom: 18px;
 
   color: #6b7280;
 }
 
-.cart-total {
+.summary-row strong {
   color: #111827;
+}
 
-  font-size: 24px;
+.cart-total {
+  font-size: 26px;
 
-  font-weight: 800;
+  font-weight: 900;
+
+  color: #ff6a00 !important;
 }
 
 .checkout-btn {
   width: 100%;
 
   margin-top: 25px;
+
+  padding: 16px;
+
+  border-radius: 12px;
+}
+
+/* =====================================
+   COUPON
+===================================== */
+
+.coupon-box {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.coupon-box input {
+  flex: 1;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid #e5e7eb;
 }
 
 /* =====================================
    EMPTY CART
 ===================================== */
 
-.cart-items p {
-  text-align: center;
-
-  padding: 40px;
-
+.cart-items > p {
   background: white;
 
-  border-radius: 16px;
+  padding: 50px;
+
+  border-radius: 20px;
+
+  text-align: center;
 
   color: #6b7280;
 }
@@ -249,11 +353,11 @@
 
 @media (max-width: 768px) {
   .cart-page {
-    padding: 50px 0;
+    padding: 45px 0;
   }
 
   .cart-title {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .cart-item {
@@ -262,27 +366,35 @@
     align-items: flex-start;
   }
 
-  .cart-item img {
+  .cart-image {
     width: 100%;
-
-    height: 220px;
   }
 
-  .quantity {
-    gap: 10px;
+  .cart-image img {
+    width: 100%;
+
+    height: 240px;
+  }
+
+  .cart-details {
+    width: 100%;
+  }
+
+  .cart-actions {
+    flex-direction: row;
   }
 }
 
 @media (max-width: 480px) {
   .cart-item {
-    padding: 15px;
-  }
-
-  .cart-item img {
-    height: 180px;
+    padding: 18px;
   }
 
   .cart-summary {
     padding: 20px;
+  }
+
+  .cart-actions {
+    flex-direction: column;
   }
 }

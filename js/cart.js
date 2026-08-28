@@ -1,6 +1,6 @@
 /* =====================================
    VENDOZA E-COMMERCE
-   Cart System
+   Premium Cart System
 ===================================== */
 
 let cart = JSON.parse(localStorage.getItem("vendozaCart")) || [];
@@ -38,7 +38,11 @@ function addToCart(productId) {
 ===================================== */
 
 function saveCart() {
-  localStorage.setItem("vendozaCart", JSON.stringify(cart));
+  localStorage.setItem(
+    "vendozaCart",
+
+    JSON.stringify(cart),
+  );
 }
 
 /* =====================================
@@ -66,10 +70,12 @@ function renderCart() {
 
   if (cart.length === 0) {
     cartContainer.innerHTML = `
-            <p>
-                Your cart is empty.
-            </p>
-        `;
+
+<p>
+Your cart is empty.
+</p>
+
+`;
 
     updateTotal();
 
@@ -78,62 +84,167 @@ function renderCart() {
 
   cartContainer.innerHTML = cart
     .map(
-      (item) =>
-        `
-        <div class="cart-item">
-
-            <img
-                src="${item.image}"
-                alt="${item.name}"
-            >
+      (item) => `
 
 
-            <div>
-
-                <h3>
-                    ${item.name}
-                </h3>
+<div class="cart-item">
 
 
-                <p>
-                    $${item.price}
-                </p>
+
+<div class="cart-image">
 
 
-                <div class="quantity">
+<img
 
-                    <button
-                        onclick="changeQuantity(${item.id}, -1)"
-                    >
-                        -
-                    </button>
+src="${item.image}"
 
+alt="${item.name}"
 
-                    <span>
-                        ${item.quantity}
-                    </span>
+>
 
 
-                    <button
-                        onclick="changeQuantity(${item.id}, 1)"
-                    >
-                        +
-                    </button>
+<span class="stock-badge">
 
-                </div>
+In Stock
+
+</span>
 
 
-                <button
-                    onclick="removeCartItem(${item.id})"
-                >
-                    Remove
-                </button>
+</div>
 
 
-            </div>
 
-        </div>
-        `,
+
+
+<div class="cart-details">
+
+
+
+<h3>
+
+${item.name}
+
+</h3>
+
+
+
+
+<div class="rating">
+
+★★★★★
+
+</div>
+
+
+
+
+<p class="price">
+
+$${item.price}
+
+</p>
+
+
+
+
+<p class="delivery">
+
+🚚 Free delivery available
+
+</p>
+
+
+
+
+
+<div class="quantity">
+
+
+
+<button
+
+onclick="changeQuantity(${item.id},-1)"
+
+>
+
+-
+
+</button>
+
+
+
+
+<span>
+
+${item.quantity}
+
+</span>
+
+
+
+
+<button
+
+onclick="changeQuantity(${item.id},1)"
+
+>
+
++
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="cart-actions">
+
+
+
+<button
+
+class="save-btn"
+
+>
+
+♡ Save for later
+
+</button>
+
+
+
+
+<button
+
+class="remove-btn"
+
+onclick="removeCartItem(${item.id})"
+
+>
+
+Remove
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+`,
     )
     .join("");
 
@@ -165,7 +276,7 @@ function changeQuantity(id, amount) {
 }
 
 /* =====================================
-   Remove Item
+   Remove Cart Item
 ===================================== */
 
 function removeCartItem(id) {
@@ -179,24 +290,30 @@ function removeCartItem(id) {
 }
 
 /* =====================================
-   Cart Total
+   Update Total
 ===================================== */
 
 function updateTotal() {
-  const totalElement = document.querySelector(".cart-total");
+  const totalElements = document.querySelectorAll(".cart-total");
 
-  if (!totalElement) return;
+  if (!totalElements.length) return;
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
 
-  totalElement.textContent = `$${total.toFixed(2)}`;
+    0,
+  );
+
+  totalElements.forEach((element) => {
+    element.textContent = `$${total.toFixed(2)}`;
+  });
 }
 
 /* =====================================
-   Product Buttons
+   Add Cart Buttons
 ===================================== */
 
-document.addEventListener("click", function (event) {
+document.addEventListener("click", (event) => {
   if (event.target.classList.contains("add-cart")) {
     const id = Number(event.target.dataset.id);
 
