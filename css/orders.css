@@ -1,68 +1,93 @@
 /* =====================================
    VENDOZA
-   Orders History Styles
+   Premium Orders Page
 ===================================== */
 
 .orders-page {
-  padding: 80px 0;
+  padding: 70px 0;
+  background: #f8fafc;
+  min-height: 80vh;
 }
 
 .orders-title {
-  font-size: 36px;
-
+  font-size: 38px;
   font-weight: 800;
-
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  color: #111827;
 }
 
-/* Orders Container */
+/* Orders Wrapper */
 
 .orders-container {
   display: flex;
-
   flex-direction: column;
-
   gap: 25px;
 }
 
 /* Order Card */
 
 .order-card {
-  background: white;
+  background: #ffffff;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 16px;
+  border-radius: 20px;
 
-  padding: 25px;
+  padding: 30px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  transition: 0.3s ease;
 }
+
+.order-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
 
 .order-header {
   display: flex;
 
   justify-content: space-between;
 
-  align-items: center;
+  align-items: flex-start;
+
+  padding-bottom: 22px;
+
+  margin-bottom: 25px;
 
   border-bottom: 1px solid #e5e7eb;
+}
 
-  padding-bottom: 15px;
+.order-header p {
+  color: #6b7280;
 
-  margin-bottom: 20px;
+  font-size: 14px;
+
+  margin-bottom: 6px;
 }
 
 .order-id {
-  font-weight: 700;
+  font-size: 18px;
+
+  font-weight: 800;
+
+  color: #111827;
 }
+
+/* Status */
 
 .order-status {
   background: #dcfce7;
 
-  color: #16a34a;
+  color: #15803d;
 
-  padding: 6px 15px;
+  padding: 8px 18px;
 
-  border-radius: 20px;
+  border-radius: 30px;
 
   font-size: 14px;
 
@@ -74,33 +99,47 @@
 .order-product {
   display: flex;
 
-  gap: 15px;
+  align-items: center;
 
-  margin-bottom: 15px;
+  gap: 20px;
+
+  padding: 18px 0;
 }
 
 .order-product img {
-  width: 80px;
+  width: 90px;
 
-  height: 80px;
+  height: 90px;
 
-  object-fit: contain;
+  object-fit: cover;
 
-  background: #f8fafc;
+  border-radius: 14px;
 
-  border-radius: 10px;
+  background: #f3f4f6;
 }
 
 .order-product h4 {
-  margin-bottom: 5px;
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 8px;
 }
 
-/* Footer */
+.order-product p {
+  color: #6b7280;
+
+  margin: 4px 0;
+}
+
+/* Total Section */
 
 .order-footer {
-  margin-top: 20px;
+  margin-top: 25px;
 
-  padding-top: 15px;
+  padding-top: 22px;
 
   border-top: 1px solid #e5e7eb;
 
@@ -108,42 +147,123 @@
 
   justify-content: space-between;
 
-  font-weight: 700;
+  align-items: center;
+}
+
+.order-footer span {
+  font-size: 16px;
+
+  color: #374151;
 }
 
 .order-total {
   color: #ff6a00;
 
-  font-size: 22px;
+  font-size: 28px;
+
+  font-weight: 800;
 }
 
-/* Empty */
+/* Add action buttons support */
+
+.order-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.order-actions button {
+  padding: 12px 22px;
+
+  border-radius: 30px;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+.track-btn {
+  background: #ff6a00;
+
+  color: white;
+}
+
+.view-btn {
+  background: #f3f4f6;
+
+  color: #111827;
+}
+
+/* Empty State */
 
 .no-orders {
   background: white;
 
-  padding: 50px;
+  padding: 60px 30px;
 
   text-align: center;
 
-  border-radius: 16px;
+  border-radius: 20px;
 
+  border: 1px solid #e5e7eb;
+}
+
+.no-orders h3 {
+  font-size: 24px;
+
+  margin-bottom: 10px;
+}
+
+.no-orders p {
   color: #6b7280;
+
+  margin-bottom: 20px;
 }
 
 /* Responsive */
 
 @media (max-width: 768px) {
-  .orders-title {
-    font-size: 28px;
+  .orders-page {
+    padding: 45px 0;
   }
 
-  .order-header,
+  .orders-title {
+    font-size: 30px;
+  }
+
+  .order-card {
+    padding: 20px;
+  }
+
+  .order-header {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .order-product {
+    align-items: flex-start;
+  }
+
+  .order-product img {
+    width: 70px;
+
+    height: 70px;
+  }
+
   .order-footer {
     flex-direction: column;
 
     align-items: flex-start;
 
     gap: 10px;
+  }
+
+  .order-total {
+    font-size: 24px;
   }
 }
