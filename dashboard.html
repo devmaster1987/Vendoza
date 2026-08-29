@@ -15,10 +15,12 @@
   <body>
     <header class="header">
       <nav class="navbar container">
-        <a href="index.html" class="logo"> Vendoza </a>
+        <a href="index.html" class="logo"> Vendoza<span>.</span> </a>
 
         <div class="nav-actions">
-          <a href="cart.html"> Cart </a>
+          <a href="index.html"> Shop </a>
+
+          <a href="cart.html"> 🛒 Cart </a>
         </div>
       </nav>
     </header>
@@ -27,61 +29,117 @@
       <section class="dashboard-page">
         <div class="container">
           <div class="dashboard-layout">
-            <aside class="dashboard-sidebar">
-              <div class="user-avatar">V</div>
+            <!-- SIDEBAR -->
 
-              <div class="user-name" id="userName">User</div>
+            <aside class="dashboard-sidebar">
+              <div class="profile-card">
+                <div class="user-avatar">V</div>
+
+                <h3 id="userName">User</h3>
+
+                <p id="userEmail">user@email.com</p>
+              </div>
 
               <nav class="dashboard-menu">
-                <a href="#" class="active"> Profile </a>
+                <a href="#" class="active"> 📊 Dashboard </a>
 
-                <a href="orders.html"> My Orders </a>
+                <a href="orders.html"> 📦 My Orders </a>
 
-                <a href="#"> Account Settings </a>
+                <a href="wishlist.html"> ❤️ Wishlist </a>
 
-                <button class="btn logout-btn" id="logoutBtn">Logout</button>
+                <a href="#"> ⚙ Account Settings </a>
+
+                <button class="logout-btn" id="logoutBtn">Logout</button>
               </nav>
             </aside>
 
+            <!-- CONTENT -->
+
             <div class="dashboard-content">
+              <div class="dashboard-welcome">
+                <div>
+                  <p>Welcome back 👋</p>
+
+                  <h1>Your Account Dashboard</h1>
+                </div>
+
+                <a href="index.html" class="btn"> Continue Shopping </a>
+              </div>
+
+              <!-- STATS -->
+
               <div class="dashboard-stats">
                 <div class="stat-box">
+                  <span> 📦 </span>
+
                   <strong id="orderCount"> 0 </strong>
 
-                  Orders
+                  <p>Total Orders</p>
                 </div>
 
                 <div class="stat-box">
+                  <span> 💰 </span>
+
                   <strong id="totalSpent"> $0 </strong>
 
-                  Spent
+                  <p>Total Spent</p>
                 </div>
 
                 <div class="stat-box">
+                  <span> ❤️ </span>
+
                   <strong> 0 </strong>
 
-                  Wishlist
+                  <p>Wishlist Items</p>
+                </div>
+
+                <div class="stat-box">
+                  <span> ⭐ </span>
+
+                  <strong> 0 </strong>
+
+                  <p>Reward Points</p>
                 </div>
               </div>
 
+              <!-- PROFILE -->
+
               <div class="dashboard-card">
-                <h2>Profile Information</h2>
+                <div class="card-header">
+                  <h2>Profile Information</h2>
+
+                  <button>Edit</button>
+                </div>
 
                 <div class="profile-info">
-                  <p>
-                    Name:
-                    <span id="profileName"></span>
-                  </p>
+                  <div>
+                    <label> Name </label>
 
-                  <p>
-                    Email:
-                    <span id="profileEmail"></span>
-                  </p>
+                    <p id="profileName"></p>
+                  </div>
+
+                  <div>
+                    <label> Email </label>
+
+                    <p id="profileEmail"></p>
+                  </div>
+
+                  <div>
+                    <label> Account Status </label>
+
+                    <p>Active</p>
+                  </div>
                 </div>
               </div>
 
+              <!-- RECENT ORDERS -->
+
               <div class="dashboard-card">
-                <h2>Recent Orders</h2>
+                <div class="card-header">
+                  <h2>Recent Orders</h2>
+
+                  <a href="orders.html"> View All </a>
+                </div>
 
                 <div id="recentOrders"></div>
               </div>

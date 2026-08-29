@@ -1,11 +1,19 @@
 /* =====================================
    VENDOZA
-   User Dashboard Styles
+   Premium User Dashboard
 ===================================== */
+
+/* Page */
 
 .dashboard-page {
   padding: 80px 0;
+
+  background: #f8fafc;
+
+  min-height: 100vh;
 }
+
+/* Layout */
 
 .dashboard-layout {
   display: grid;
@@ -13,32 +21,44 @@
   grid-template-columns: 280px 1fr;
 
   gap: 30px;
+
+  align-items: start;
 }
 
-/* Sidebar */
+/* =====================================
+   SIDEBAR
+===================================== */
 
 .dashboard-sidebar {
   background: white;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 16px;
+  border-radius: 24px;
 
   padding: 25px;
 
-  height: max-content;
+  position: sticky;
+
+  top: 100px;
+}
+
+.profile-card {
+  text-align: center;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .user-avatar {
-  width: 80px;
+  width: 90px;
 
-  height: 80px;
+  height: 90px;
+
+  margin: auto;
 
   border-radius: 50%;
-
-  background: #ff6a00;
-
-  color: white;
 
   display: flex;
 
@@ -46,22 +66,32 @@
 
   justify-content: center;
 
-  font-size: 30px;
+  background: linear-gradient(135deg, #ff6a00, #ff9a3d);
+
+  color: white;
+
+  font-size: 36px;
+
+  font-weight: 900;
+
+  box-shadow: 0 15px 30px rgba(255, 106, 0, 0.25);
+}
+
+.profile-card h3 {
+  margin-top: 18px;
+
+  font-size: 22px;
 
   font-weight: 800;
-
-  margin: auto;
 }
 
-.user-name {
-  text-align: center;
+.profile-card p {
+  color: #6b7280;
 
-  margin: 15px 0;
-
-  font-size: 20px;
-
-  font-weight: 700;
+  font-size: 14px;
 }
+
+/* Menu */
 
 .dashboard-menu {
   display: flex;
@@ -69,16 +99,22 @@
   flex-direction: column;
 
   gap: 10px;
+
+  margin-top: 25px;
 }
 
 .dashboard-menu a {
-  padding: 12px 15px;
+  padding: 14px 16px;
 
-  border-radius: 8px;
+  border-radius: 12px;
+
+  text-decoration: none;
 
   color: #374151;
 
-  font-weight: 600;
+  font-weight: 700;
+
+  transition: 0.3s;
 }
 
 .dashboard-menu a:hover,
@@ -88,7 +124,29 @@
   color: white;
 }
 
-/* Content */
+.logout-btn {
+  margin-top: 20px;
+
+  width: 100%;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  background: #ef4444;
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* =====================================
+   CONTENT
+===================================== */
 
 .dashboard-content {
   display: flex;
@@ -98,23 +156,134 @@
   gap: 25px;
 }
 
+/* Welcome */
+
+.dashboard-welcome {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border: 1px solid #e5e7eb;
+}
+
+.dashboard-welcome p {
+  color: #6b7280;
+
+  margin-bottom: 8px;
+}
+
+.dashboard-welcome h1 {
+  font-size: 32px;
+
+  font-weight: 900;
+}
+
+/* =====================================
+   STATS
+===================================== */
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.stat-box {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  transition: 0.3s;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.stat-box span {
+  font-size: 30px;
+}
+
+.stat-box strong {
+  display: block;
+
+  margin-top: 15px;
+
+  font-size: 32px;
+
+  font-weight: 900;
+
+  color: #ff6a00;
+}
+
+.stat-box p {
+  color: #6b7280;
+
+  margin-top: 5px;
+}
+
+/* =====================================
+   CARDS
+===================================== */
+
 .dashboard-card {
   background: white;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 16px;
+  border-radius: 24px;
 
-  padding: 25px;
+  padding: 30px;
 }
 
-.dashboard-card h2 {
-  margin-bottom: 20px;
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
 }
 
-/* Stats */
+.card-header h2 {
+  font-size: 24px;
 
-.dashboard-stats {
+  font-weight: 800;
+}
+
+.card-header a,
+.card-header button {
+  color: #ff6a00;
+
+  background: none;
+
+  border: none;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* Profile */
+
+.profile-info {
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
@@ -122,31 +291,31 @@
   gap: 20px;
 }
 
-.stat-box {
-  background: #fff7ed;
+.profile-info div {
+  background: #f8fafc;
 
-  padding: 25px;
+  padding: 18px;
 
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
-.stat-box strong {
+.profile-info label {
   display: block;
 
-  font-size: 30px;
+  font-size: 13px;
 
-  color: #ff6a00;
+  color: #6b7280;
+
+  margin-bottom: 8px;
 }
-
-/* Profile */
 
 .profile-info p {
-  margin-bottom: 12px;
+  font-weight: 700;
 
-  color: #4b5563;
+  color: #111827;
 }
 
-/* Orders */
+/* Recent Orders */
 
 .dashboard-order {
   display: flex;
@@ -155,7 +324,7 @@
 
   align-items: center;
 
-  padding: 15px 0;
+  padding: 18px 0;
 
   border-bottom: 1px solid #e5e7eb;
 }
@@ -165,37 +334,73 @@
 
   color: #16a34a;
 
-  padding: 5px 12px;
+  padding: 7px 15px;
 
-  border-radius: 20px;
+  border-radius: 30px;
 
   font-size: 13px;
 
   font-weight: 700;
 }
 
-/* Logout */
+/* =====================================
+   TABLET
+===================================== */
 
-.logout-btn {
-  margin-top: 20px;
-
-  width: 100%;
-
-  background: #ef4444;
+@media (max-width: 1100px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 1024px) {
   .dashboard-layout {
     grid-template-columns: 1fr;
   }
+
+  .dashboard-sidebar {
+    position: static;
+  }
 }
 
+/* =====================================
+   MOBILE
+===================================== */
+
 @media (max-width: 768px) {
+  .dashboard-page {
+    padding: 50px 0;
+  }
+
+  .dashboard-welcome {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 26px;
+  }
+
   .dashboard-stats {
     grid-template-columns: 1fr;
   }
 
-  .dashboard-page {
-    padding: 50px 0;
+  .profile-info {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+
+  .dashboard-order {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
   }
 }
