@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Customers Management</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <link rel="stylesheet" href="css/customers-admin.css" />
+  </head>
+
+  <body>
+    <script>
+      if (localStorage.getItem("vendozaAdmin") !== "true") {
+        window.location.href = "admin-login.html";
+      }
+    </script>
+
+    <main class="admin-page">
+      <div class="container">
+        <div class="admin-layout">
+          <!-- SIDEBAR -->
+
+          <aside class="admin-sidebar">
+            <div class="admin-logo">
+              Vendoza
+              <span> Admin </span>
+            </div>
+
+            <nav class="admin-menu">
+              <a href="admin.html"> 📊 Dashboard </a>
+
+              <a href="products-admin.html"> 📦 Products </a>
+
+              <a href="orders-admin.html"> 🛒 Orders </a>
+
+              <a href="customers-admin.html" class="active"> 👥 Customers </a>
+
+              <button id="adminLogout">Logout</button>
+            </nav>
+          </aside>
+
+          <!-- CONTENT -->
+
+          <section class="admin-content">
+            <div class="admin-header">
+              <div>
+                <p>Manage Store Customers</p>
+
+                <h1>Customer Management</h1>
+              </div>
+            </div>
+
+            <!-- CUSTOMER STATS -->
+
+            <div class="admin-stats">
+              <div class="admin-stat">
+                <span> 👥 </span>
+
+                <strong id="customerTotal"> 0 </strong>
+
+                <p>Total Customers</p>
+              </div>
+
+              <div class="admin-stat">
+                <span> 💰 </span>
+
+                <strong id="customerRevenue"> $0 </strong>
+
+                <p>Customer Revenue</p>
+              </div>
+            </div>
+
+            <!-- CUSTOMER TABLE -->
+
+            <div class="admin-card">
+              <div class="customer-toolbar">
+                <h2>All Customers</h2>
+
+                <input id="searchCustomer" placeholder="Search customer..." />
+              </div>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Avatar</th>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>Orders</th>
+
+                    <th>Spent</th>
+
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody id="customerTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/customers-admin.js"></script>
+  </body>
+</html>

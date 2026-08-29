@@ -1,169 +1,310 @@
 /* =====================================
    VENDOZA
-   Admin Dashboard
+   Premium Admin Dashboard
 ===================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  let adminProducts =
-    JSON.parse(localStorage.getItem("vendozaProducts")) || products;
+  /* =====================================
+   Admin Protection
+===================================== */
 
-  function saveProducts() {
-    localStorage.setItem("vendozaProducts", JSON.stringify(adminProducts));
+  if (localStorage.getItem("vendozaAdmin") !== "true") {
+    window.location.href = "admin-login.html";
+
+    return;
   }
 
-  const form = document.getElementById("productForm");
+  /* =====================================
+   DATA
+===================================== */
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  const products = JSON.parse(localStorage.getItem("vendozaProducts")) || [];
 
-    const newProduct = {
-      id: Date.now(),
+  const orders = JSON.parse(localStorage.getItem("vendozaOrders")) || [];
 
-      name: productName.value,
+  const users = JSON.parse(localStorage.getItem("vendozaUsers")) || [];
 
-      category: productCategory.value,
+  /* =====================================
+   BASIC STATS
+===================================== */
 
-      price: Number(productPrice.value),
+  const productCount = document.getElementById("productCount");
 
-      oldPrice: Number(productPrice.value),
+  const orderCount = document.getElementById("orderCount");
 
-      rating: 5,
+  const revenue = document.getElementById("revenue");
 
-      image: productImage.value,
+  const customerCount = document.getElementById("customerCount");
+
+  if (productCount) productCount.textContent = products.length;
+
+  if (orderCount) orderCount.textContent = orders.length;
+
+  const totalRevenue = orders.reduce(
+    (sum, order) => sum + Number(order.total),
+
+    0,
+  );
+
+  if (revenue) revenue.textContent = "$" + totalRevenue.toFixed(2);
+
+  if (customerCount) customerCount.textContent = users.length;
+
+  /* =====================================
+   SALES CHART
+===================================== */
+
+  const chartElement = document.getElementById("salesChart");
+
+  if (chartElement && typeof Chart !== "undefined") {
+    const monthlySales = [0, 0, 0, 0, 0, 0];
+
+    orders.forEach((order) => {
+      const month = new Date(order.date).getMonth();
+
+      monthlySales[month] += Number(order.total);
+    });
+
+    new Chart(chartElement, {
+      type: "line",
+
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+        datasets: [
+          {
+            label: "Revenue",
+
+            data: monthlySales,
+
+            borderWidth: 3,
+
+            tension: 0.4,
+          },
+        ],
+      },
+
+      options: {
+        responsive: true,
+
+        maintainAspectRatio: false,
+      },
+    });
+  }
+
+  /* =====================================
+   ORDER STATUS
+===================================== */
+
+  const orderStatus = document.getElementById("orderStatus");
+
+  if (orderStatus) {
+    const statusCount = {
+      Pending: 0,
+
+      Processing: 0,
+
+      Shipped: 0,
+
+      Delivered: 0,
+
+      Cancelled: 0,
     };
 
-    adminProducts.push(newProduct);
+    orders.forEach((order) => {
+      if (statusCount[order.status] !== undefined) statusCount[order.status]++;
+    });
 
-    saveProducts();
+    orderStatus.innerHTML = Object.entries(statusCount)
 
-    renderProducts();
-
-    form.reset();
-  });
-
-  function renderProducts() {
-    const table = document.getElementById("productTable");
-
-    table.innerHTML = adminProducts
       .map(
-        (product) =>
-          `
-
-<tr>
-
-<td>
-
-<img src="${product.image}">
-
-</td>
+        ([status, count]) => `
 
 
-<td>
+<div class="order-status-item">
+
+
+<strong>
+
+${status}
+
+</strong>
+
+
+<span class="status-${status.toLowerCase()}">
+
+${count}
+
+</span>
+
+
+</div>
+
+
+`,
+      )
+
+      .join("");
+  }
+
+  /* =====================================
+   LOW STOCK
+===================================== */
+
+  const lowStock = document.getElementById("lowStock");
+
+  if (lowStock) {
+    const items = products.filter((product) => product.stock < 10);
+
+    if (items.length === 0) {
+      lowStock.innerHTML = `
+
+<p>
+All products have good stock.
+</p>
+
+`;
+    } else {
+      lowStock.innerHTML = items
+        .map(
+          (product) => `
+
+
+<div class="stock-alert">
+
+
+<strong>
+
 ${product.name}
-</td>
+
+</strong>
 
 
-<td>
-$${product.price}
-</td>
+<span>
+
+Stock: ${product.stock}
+
+</span>
 
 
-<td>
+</div>
 
-
-<button
-class="delete-btn"
-onclick="deleteProduct(${product.id})"
->
-
-Delete
-
-</button>
-
-
-</td>
-
-
-</tr>
 
 `,
-      )
-      .join("");
-
-    document.getElementById("productCount").textContent = adminProducts.length;
+        )
+        .join("");
+    }
   }
 
-  window.deleteProduct = function (id) {
-    adminProducts = adminProducts.filter((item) => item.id !== id);
+  /* =====================================
+   RECENT ACTIVITY
+===================================== */
 
-    saveProducts();
+  const activityList = document.getElementById("activityList");
 
-    renderProducts();
-  };
+  if (activityList) {
+    let activity = [];
 
-  function renderOrders() {
-    const orders = JSON.parse(localStorage.getItem("vendozaOrders")) || [];
+    orders.slice(-3).forEach((order) => {
+      activity.push(`
 
-    const table = document.getElementById("orderTable");
+New order placed ${order.id}
 
-    table.innerHTML = orders
+`);
+    });
+
+    products.slice(-3).forEach((product) => {
+      activity.push(`
+
+Product added ${product.name}
+
+`);
+    });
+
+    activityList.innerHTML = activity
       .map(
-        (order) =>
-          `
-
-<tr>
-
-<td>
-${order.id}
-</td>
+        (item) => `
 
 
-<td>
-${order.customer?.name || "Customer"}
-</td>
+<div class="activity-item">
 
 
-<td>
-$${order.total}
-</td>
+<div class="activity-icon">
+
+✓
+
+</div>
 
 
-<td>
-${order.status}
-</td>
+<p>
+
+${item}
+
+</p>
 
 
-</tr>
+</div>
+
 
 `,
       )
       .join("");
-
-    document.getElementById("orderCount").textContent = orders.length;
-
-    document.getElementById("revenue").textContent =
-      "$" + orders.reduce((sum, item) => sum + item.total, 0);
   }
 
-  renderProducts();
+  /* =====================================
+   TOP PRODUCTS
+===================================== */
 
-  renderOrders();
+  const topProducts = document.getElementById("topProducts");
 
-  window.editProduct = function (id) {
-    const product = adminProducts.find((item) => item.id === id);
+  if (topProducts) {
+    if (products.length === 0) {
+      topProducts.innerHTML = "<p>No products found.</p>";
+    } else {
+      topProducts.innerHTML = products
+        .slice(0, 5)
 
-    if (!product) return;
+        .map(
+          (product) => `
 
-    const name = prompt("Product Name", product.name);
 
-    const price = prompt("Product Price", product.price);
+<div class="product-performance">
 
-    product.name = name;
 
-    product.price = Number(price);
+<strong>
 
-    saveProducts();
+${product.name}
 
-    renderProducts();
-  };
+</strong>
+
+
+<span>
+
+$${product.price}
+
+</span>
+
+
+</div>
+
+
+`,
+        )
+        .join("");
+    }
+  }
+
+  /* =====================================
+   LOGOUT
+===================================== */
+
+  const logout = document.getElementById("adminLogout");
+
+  if (logout) {
+    logout.addEventListener("click", () => {
+      localStorage.removeItem("vendozaAdmin");
+
+      window.location.href = "admin-login.html";
+    });
+  }
 });

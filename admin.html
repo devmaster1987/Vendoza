@@ -5,124 +5,163 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Vendoza Admin</title>
+    <title>Vendoza Admin Dashboard</title>
 
     <link rel="stylesheet" href="css/style.css" />
 
     <link rel="stylesheet" href="css/admin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
     <script>
+      if (localStorage.getItem("vendozaAdmin") !== "true") {
+        window.location.href = "admin-login.html";
+      }
+    </script>
 
-if(
-localStorage.getItem("vendozaAdmin")
-!=="true"
-){
-
-window.location.href =
-"admin-login.html";
-
-}
-
-</script>
     <main class="admin-page">
       <div class="container">
         <div class="admin-layout">
+          <!-- SIDEBAR -->
+
           <aside class="admin-sidebar">
-            <div class="admin-logo">Vendoza Admin</div>
+            <div class="admin-logo">
+              Vendoza
+              <span> Admin </span>
+            </div>
 
             <nav class="admin-menu">
-              <button class="active">Dashboard</button>
+              <a class="active" href="admin.html"> 📊 Dashboard </a>
 
-              <button>Products</button>
+              <a href="products-admin.html"> 📦 Products </a>
 
-              <button>Orders</button>
+              <a href="orders-admin.html"> 🛒 Orders </a>
+
+              <a href="#"> 👥 Customers </a>
+
+              <a href="#"> ⚙ Settings </a>
+
+              <button id="adminLogout">Logout</button>
             </nav>
           </aside>
 
+          <!-- CONTENT -->
+
           <section class="admin-content">
+            <div class="admin-header">
+              <div>
+                <p>Welcome back 👋</p>
+
+                <h1>Admin Dashboard</h1>
+              </div>
+
+              <a href="index.html" class="btn"> View Store </a>
+            </div>
+
+            <!-- STATS -->
+
             <div class="admin-stats">
               <div class="admin-stat">
+                <span> 📦 </span>
+
                 <strong id="productCount"> 0 </strong>
 
-                Products
+                <p>Products</p>
               </div>
 
               <div class="admin-stat">
+                <span> 🛒 </span>
+
                 <strong id="orderCount"> 0 </strong>
 
-                Orders
+                <p>Orders</p>
               </div>
 
               <div class="admin-stat">
+                <span> 💰 </span>
+
                 <strong id="revenue"> $0 </strong>
 
-                Revenue
+                <p>Revenue</p>
+              </div>
+
+              <div class="admin-stat">
+                <span> 👥 </span>
+
+                <strong id="customerCount"> 0 </strong>
+
+                <p>Customers</p>
               </div>
             </div>
 
+            <!-- RECENT ORDERS -->
+
             <div class="admin-card">
-              <h2>Add Product</h2>
+              <div class="card-header">
+                <h2>Recent Orders</h2>
 
-              <form class="admin-form" id="productForm">
-                <input id="productName" placeholder="Product Name" />
+                <a href="orders-admin.html"> View All </a>
+              </div>
 
-                <input id="productPrice" placeholder="Price" />
-
-                <input id="productCategory" placeholder="Category" />
-
-                <input id="productImage" placeholder="Image URL" />
-
-                <button class="btn">Add Product</button>
-              </form>
+              <div id="recentOrders"></div>
             </div>
 
+            <!-- TOP PRODUCTS -->
+
             <div class="admin-card">
-              <h2>Products</h2>
+              <div class="card-header">
+                <h2>Top Products</h2>
+              </div>
 
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>Image</th>
-
-                    <th>Name</th>
-
-                    <th>Price</th>
-
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody id="productTable"></tbody>
-              </table>
+              <div id="topProducts"></div>
             </div>
 
+            <!-- SALES ANALYTICS -->
+
             <div class="admin-card">
-              <h2>Orders</h2>
+              <div class="card-header">
+                <h2>Sales Analytics</h2>
+              </div>
 
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>Order</th>
+              <div class="chart-box">
+                <canvas id="salesChart"></canvas>
+              </div>
+            </div>
 
-                    <th>Customer</th>
+            <!-- ORDER STATUS + LOW STOCK -->
 
-                    <th>Total</th>
+            <div class="dashboard-grid">
+              <div class="admin-card">
+                <div class="card-header">
+                  <h2>Order Overview</h2>
+                </div>
 
-                    <th>Status</th>
-                  </tr>
-                </thead>
+                <div id="orderStatus"></div>
+              </div>
 
-                <tbody id="orderTable"></tbody>
-              </table>
+              <div class="admin-card">
+                <div class="card-header">
+                  <h2>Low Stock Alert</h2>
+                </div>
+
+                <div id="lowStock"></div>
+              </div>
+            </div>
+
+            <!-- RECENT ACTIVITY -->
+
+            <div class="admin-card">
+              <div class="card-header">
+                <h2>Recent Activity</h2>
+              </div>
+
+              <div id="activityList"></div>
             </div>
           </section>
         </div>
       </div>
     </main>
-
-    <script src="js/products.js"></script>
 
     <script src="js/admin.js"></script>
   </body>

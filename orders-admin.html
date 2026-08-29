@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Orders Management</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <link rel="stylesheet" href="css/orders-admin.css" />
+  </head>
+
+  <body>
+    <script>
+      if (localStorage.getItem("vendozaAdmin") !== "true") {
+        window.location.href = "admin-login.html";
+      }
+    </script>
+
+    <main class="admin-page">
+      <div class="container">
+        <div class="admin-layout">
+          <!-- SIDEBAR -->
+
+          <aside class="admin-sidebar">
+            <div class="admin-logo">
+              Vendoza
+              <span> Admin </span>
+            </div>
+
+            <nav class="admin-menu">
+              <a href="admin.html"> 📊 Dashboard </a>
+
+              <a href="products-admin.html"> 📦 Products </a>
+
+              <a href="orders-admin.html" class="active"> 🛒 Orders </a>
+
+              <button id="adminLogout">Logout</button>
+            </nav>
+          </aside>
+
+          <!-- CONTENT -->
+
+          <section class="admin-content">
+            <div class="admin-header">
+              <div>
+                <p>Manage Customer Orders</p>
+
+                <h1>Orders Management</h1>
+              </div>
+            </div>
+
+            <div class="admin-card">
+              <div class="order-toolbar">
+                <h2>All Orders</h2>
+
+                <input id="searchOrder" placeholder="Search order..." />
+              </div>
+
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+
+                    <th>Customer</th>
+
+                    <th>Items</th>
+
+                    <th>Total</th>
+
+                    <th>Date</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody id="orderTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/orders-admin.js"></script>
+  </body>
+</html>
