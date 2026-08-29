@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vendoza Settings</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <link rel="stylesheet" href="css/settings-admin.css" />
+  </head>
+
+  <body>
+    <script>
+      if (localStorage.getItem("vendozaAdmin") !== "true") {
+        window.location.href = "admin-login.html";
+      }
+    </script>
+
+    <main class="admin-page">
+      <div class="container">
+        <div class="admin-layout">
+          <!-- SIDEBAR -->
+
+          <aside class="admin-sidebar">
+            <div class="admin-logo">
+              Vendoza
+              <span> Admin </span>
+            </div>
+
+            <nav class="admin-menu">
+              <a href="admin.html"> 📊 Dashboard </a>
+
+              <a href="products-admin.html"> 📦 Products </a>
+
+              <a href="orders-admin.html"> 🛒 Orders </a>
+
+              <a href="customers-admin.html"> 👥 Customers </a>
+
+              <a href="settings-admin.html" class="active"> ⚙ Settings </a>
+
+              <button id="adminLogout">Logout</button>
+            </nav>
+          </aside>
+
+          <!-- CONTENT -->
+
+          <section class="admin-content">
+            <div class="admin-header">
+              <div>
+                <p>Manage Store Configuration</p>
+
+                <h1>Settings</h1>
+              </div>
+            </div>
+
+            <!-- STORE SETTINGS -->
+
+            <div class="admin-card">
+              <h2>Store Information</h2>
+
+              <form id="settingsForm" class="settings-form">
+                <div>
+                  <label> Store Name </label>
+
+                  <input id="storeName" placeholder="Vendoza" />
+                </div>
+
+                <div>
+                  <label> Store Email </label>
+
+                  <input id="storeEmail" placeholder="store@email.com" />
+                </div>
+
+                <div>
+                  <label> Phone Number </label>
+
+                  <input id="storePhone" placeholder="+92 300 0000000" />
+                </div>
+
+                <div>
+                  <label> Currency </label>
+
+                  <select id="currency">
+                    <option>USD</option>
+
+                    <option>PKR</option>
+
+                    <option>EUR</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label> Store Logo URL </label>
+
+                  <input id="storeLogo" placeholder="Image URL" />
+                </div>
+
+                <button class="btn">Save Settings</button>
+              </form>
+            </div>
+
+            <!-- ADMIN PROFILE -->
+
+            <div class="admin-card">
+              <h2>Admin Profile</h2>
+
+              <div class="admin-profile-box">
+                <div class="admin-avatar">A</div>
+
+                <div>
+                  <h3>Administrator</h3>
+
+                  <p>admin@vendoza.com</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/settings-admin.js"></script>
+  </body>
+</html>
